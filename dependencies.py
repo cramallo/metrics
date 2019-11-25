@@ -8,7 +8,7 @@ class DependencyMetric():
         self.total_direct_dependencies = 0
         self.total_indirect_dependencies = 0
 
-    def set_variables(self):
+    def calculate_dependencies_metrics(self):
         os.chdir('/home/cramallo/Downloads/training')
         dependencies_tree = os.popen(
             './gradlew dependencies').read()
@@ -34,8 +34,4 @@ class DependencyMetric():
                 self.indirect_dependencies.add(clean_line_indirect_dependency)
 
         print('direct dependencies: ' + str(len(self.direct_dependencies)))
-        print('direct dependencies: ' + str(len(self.indirect_dependencies)))
-
-
-dependency = DependencyMetric()
-dependency.set_variables()
+        print('indirect dependencies: ' + str(len(self.indirect_dependencies)))

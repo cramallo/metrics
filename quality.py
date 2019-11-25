@@ -15,11 +15,11 @@ class Quality:
         cpd_report = './build/reports/cpd/cpdCheck.xml'
         pmd_tree = ET.parse(pmd_report)
         cpd_tree = ET.parse(cpd_report)
-        pmd_root = pmd_tree.getroot()
-        cpd_root = cpd_tree.getroot()
+        #pmd_root = pmd_tree.getroot()
+        #cpd_root = cpd_tree.getroot()
 
-        for elem in pmd_root:
-            print(elem.attrib)
+        # for elem in pmd_root:
+        #    print(elem.attrib)
 
 
 quality = Quality()
