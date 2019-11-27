@@ -1,6 +1,7 @@
 from coverage import Coverage
 from dependencies import DependencyMetric
 
+
 coverage_metric = Coverage()
 dependency_metric = DependencyMetric()
 
