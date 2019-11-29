@@ -12,7 +12,7 @@ class Coverage:
         self.code_coverage = 0
 
     def set_variables(self):
-        os.chdir('/home/cramallo/Downloads/training')
+        os.chdir('/Users/Carlos/Desktop/wolox/training java/cr-java')
         os.system('./gradlew build clean')
         coverage_report_path = './build/reports/jacoco/test/jacocoTestReport.xml'
         tree = ET.parse(coverage_report_path)
@@ -20,8 +20,8 @@ class Coverage:
 
         for elem in root:
             if('covered' in elem.attrib):
-                if(elem.attrib['type'] == 'INSTRUCTION'):
-                    print('para complexity')
+                if(elem.attrib['type'] == 'COMPLEXITY'):
+                    self.cyclomatic_complexity = int(elem.attrib['missed'] + elem.attrib['covered'])
                 elif(elem.attrib['type'] == 'BRANCH'):
                     self.undercover_conditions = int(elem.attrib['missed'])
                     self.conditions_to_cover = int(
@@ -36,4 +36,7 @@ class Coverage:
         self.set_variables()
         self.code_coverage = (self.conditions_to_cover - self.undercover_conditions + self.lc) \
             / (self.conditions_to_cover + self.lines_to_cover)
-        return self.code_coverage
+        print(self.code_coverage)
+
+coverage = Coverage()
+coverage.calculate_code_coverage()
