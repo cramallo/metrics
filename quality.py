@@ -8,7 +8,6 @@ class Quality:
         self.lines_of_code = lines_of_code
 
     def set_variables(self):
-        os.chdir('/home/cramallo/Documents/java-project-metrics/project-java-travis')
         self.pmd_report = './build/reports/pmd/main.xml'
         self.cpd_report = './build/reports/cpd/cpdCheck.xml'
 
@@ -22,6 +21,7 @@ class Quality:
             non_duplication_score -= 0.5
 
         score = self.calculate_score_duplications(non_duplication_score)
+        print('Duplicated code metric:\n')
         print('Non duplicate code score: ' + str(non_duplication_score))
         print('------------------------------')
         print('Score: ' + score)
@@ -104,6 +104,3 @@ class Quality:
         self.calculate_duplicate_code()
         self.calculate_code_smells()
         print('Cyclomatic complexity: ' + str(self.cyclomatic_complexity))
-
-#quality = Quality(100, 1545)
-# quality.calculate_quality()

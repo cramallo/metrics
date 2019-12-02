@@ -9,7 +9,6 @@ class DependencyMetric():
         self.total_indirect_dependencies = 0
 
     def calculate_dependencies_metrics(self):
-        os.chdir('/home/cramallo/Downloads/training')
         dependencies_tree = os.popen(
             './gradlew dependencies').read()
         # remove spaces

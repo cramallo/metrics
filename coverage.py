@@ -13,8 +13,6 @@ class Coverage:
         self.code_coverage = 0
 
     def set_variables(self):
-        os.chdir('/home/cramallo/Documents/java-project-metrics/project-java-travis')
-        #os.system('./gradlew build clean')
         coverage_report_path = './build/reports/jacoco/test/jacocoTestReport.xml'
         tree = ET.parse(coverage_report_path)
         root = tree.getroot()
@@ -43,7 +41,3 @@ class Coverage:
             / (self.conditions_to_cover + self.lines_to_cover) * 100
 
         print('Code coverage ratio: ' + str(round(self.code_coverage, 2)) + "%")
-
-
-#coverage = Coverage()
-# coverage.calculate_code_coverage()
