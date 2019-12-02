@@ -32,4 +32,4 @@ class Quality:
 
 
 quality = Quality()
-quality.calculate_duplicate_code()
+print(quality.calculate_duplicate_code())
