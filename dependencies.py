@@ -33,5 +33,6 @@ class DependencyMetric():
                         '\-', 1)[-1].split(' ', 1)[-1]
                 self.indirect_dependencies.add(clean_line_indirect_dependency)
 
-        print('direct dependencies: ' + str(len(self.direct_dependencies)))
-        print('indirect dependencies: ' + str(len(self.indirect_dependencies)))
+        print('Direct dependencies: ' + str(len(self.direct_dependencies)))
+        print('------------------------------')
+        print('Indirect dependencies: ' + str(len(self.indirect_dependencies)))
