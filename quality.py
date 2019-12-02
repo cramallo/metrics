@@ -54,13 +54,42 @@ class Quality:
                 total_issues += 1
         
         score = self.calculate_score(clean_code_percentage)
+        total_lines = 1445
+
+
+        high_priority_percentage =  high_priority * 100 / total_lines
+        medium_priority_percentage = medium_priority * 100 / total_lines
+        low_priority_percentage = low_priority * 100 / low_priority
+
+        high_priority_ponder = high_priority_percentage * 0.60
+        medium_priority_ponder = medium_priority_percentage * 0.30
+        low_priority_ponder = low_priority_percentage * 0.10
+
+        total = (high_priority_ponder + medium_priority_ponder + low_priority_ponder) / 3 
+
+        print("total:" + str(total))
+
+
+        #priority_sequence_high = high_priority * 100 / total_issues
+        #priority_sequence_medium = medium_priority * 100 / total_issues
+        #priority_sequence_low = low_priority * 100 / total_issues
+        #print("High:" + str(priority_sequence_high))
+        #print("Medium:" + str(priority_sequence_medium))
+        #print("Low:" + str(priority_sequence_low))
+        #prom_total = (priority_sequence_high + priority_sequence_medium + priority_sequence_low) / 3
+        #print("AHHHHHHHHHHHH:" + str(prom_total))
+
+        
+
+        
+
 
         print('Code smells:')
         print('------------------------------')
-        print('High priority: '+str((high_priority*total_issues)/100)+"%")
-        print('Medium priority: '+str((medium_priority*total_issues)/100)+"%")
-        print('Low priority: '+str((low_priority*total_issues)/100)+"%")
-        print('Total issues: '+str((total_issues*total_issues)/100))
+        print('High priority: '+str(high_priority))#str((high_priority*total_issues)/100)+"%")
+        print('Medium priority: '+str(medium_priority))#str((medium_priority*total_issues)/100)+"%")
+        print('Low priority: '+str(low_priority))#str((low_priority*total_issues)/100)+"%")
+        print('Total issues: '+str(total_issues))
         print('Código limpio: '+str(clean_code_percentage * 100)+"%")
         print('Score: ' + str(score))
         print('------------------------------')
